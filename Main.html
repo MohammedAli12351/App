@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Sharing Platform</title>
+    <style>
+        /* CSS for colorful theme */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; /* Light gray background */
+        }
+        header {
+            background-color: #3cb371; /* Medium sea green header */
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background-color: #4682b4; /* Steel blue navigation */
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 20px;
+        }
+        footer {
+            background-color: #696969; /* Dim gray footer */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Sharing Platform</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about-us">About Us</a>
+        <a href="#recipe-sharing">Recipe Sharing</a>
+        <a href="#contact-us">Contact Us</a>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to Recipe Sharing Platform! Discover and share delicious recipes from around the world.</p>
+			<img src="Image.jpg" alt="Image Description">
+			<p>Welcome to our Recipe Sharing Platform, where cooking aficionados unite to explore a world of flavors, creativity, and culinary inspiration. Whether you're a passionate home cook, a seasoned chef, or simply someone who loves good food, you've come to the right place. Our vibrant community is dedicated to sharing mouthwatering recipes, helpful cooking tips, and stories that celebrate the joy of food. Join us as we embark on a delicious journey together, one recipe at a time. Let's cook, 
+			share, and savor the magic of homemade meals!</p>
+        </section>
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>Learn about our mission, values, and the team behind Recipe Sharing Platform.</p>
+        </section>
+
+
+<section id="recipe-sharing">
+    <h2>Recipe Sharing</h2>
+    <p>Share your favorite recipes with the world! Whether it's a family secret or a new creation, let's spread the joy of cooking.</p>
+    
+    <!-- Form to input recipe information -->
+    <form id="recipe-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+        
+        <label for="prep-time">Preparation Time:</label>
+        <input type="text" id="prep-time" name="prep-time" required><br>
+        
+        <label for="cook-time">Cook Time:</label>
+        <input type="text" id="cook-time" name="cook-time" required><br>
+        
+        <label for="total-time">Total Time:</label>
+        <input type="text" id="total-time" name="total-time" required><br>
+        
+        <label for="servings">Servings:</label>
+        <input type="number" id="servings" name="servings" required><br>
+        
+        <button type="submit">Add Recipe</button>
+    </form>
+    
+    <hr> <!-- Separator line -->
+    
+    <!-- Search input field -->
+    <input type="text" id="recipe-search" placeholder="Search recipes...">
+    
+    <!-- Recipe table -->
+    <table id="recipe-table" border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Preparation Time</th>
+                <th>Cook Time</th>
+                <th>Total Time</th>
+                <th>Servings</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Spaghetti Carbonara</td>
+                <td>A classic Italian pasta dish made with eggs, cheese, pancetta, and black pepper.</td>
+                <td>10 minutes</td>
+                <td>15 minutes</td>
+                <td>25 minutes</td>
+                <td>4</td>
+                <td>
+                    <button onclick="editRecipe(this)">Edit</button>
+                    <button onclick="deleteRecipe(this)">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Chicken Tikka Masala</td>
+                <td>A popular Indian dish featuring marinated chicken in a spiced tomato sauce.</td>
+                <td>20 minutes</td>
+                <td>25 minutes</td>
+                <td>45 minutes</td>
+                <td>6</td>
+                <td>
+                    <button onclick="editRecipe(this)">Edit</button>
+                    <button onclick="deleteRecipe(this)">Delete</button>
+                </td>
+            </tr>
+            <!-- Add more rows for additional recipes -->
+        </tbody>
+    </table>
+</section>
+
+<script>
+    const recipeForm = document.getElementById('recipe-form');
+    const recipeTable = document.getElementById('recipe-table');
+    const recipeSearch = document.getElementById('recipe-search');
+    
+    // Function to add a new recipe
+    recipeForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        // Get input values
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const prepTime = document.getElementById('prep-time').value;
+        const cookTime = document.getElementById('cook-time').value;
+        const totalTime = document.getElementById('total-time').value;
+        const servings = document.getElementById('servings').value;
+        
+        // Create new row and cells
+        const newRow = recipeTable.insertRow(-1); // Insert new row at the end of the table
+        const cells = Array.from({ length: 7 }, () => newRow.insertCell());
+        
+        // Set cell values
+        cells[0].innerText = title;
+        cells[1].innerText = description;
+        cells[2].innerText = prepTime;
+        cells[3].innerText = cookTime;
+        cells[4].innerText = totalTime;
+        cells[5].innerText = servings;
+        cells[6].innerHTML = '<button onclick="editRecipe(this)">Edit</button> <button onclick="deleteRecipe(this)">Delete</button>';
+        
+        // Reset form
+        recipeForm.reset();
+    });
+    
+    // Function to search for recipes
+    recipeSearch.addEventListener('keyup', function(event) {
+        const searchTerm = event.target.value.toLowerCase();
+        const rows = recipeTable.getElementsByTagName('tr');
+        
+        for (let row of rows) {
+            let cells = row.getElementsByTagName('td');
+            let found = false;
+            
+            for (let cell of cells) {
+                if (cell.innerText.toLowerCase().includes(searchTerm)) {
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (found) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+    
+    // Function to edit a recipe
+    function editRecipe(button) {
+        const row = button.closest('tr');
+        const cells = row.getElementsByTagName('td');
+        
+        // Populate form with existing data
+        document.getElementById('title').value = cells[0].innerText;
+        document.getElementById('description').value = cells[1].innerText;
+        document.getElementById('prep-time').value = cells[2].innerText;
+        document.getElementById('cook-time').value = cells[3].innerText;
+        document.getElementById('total-time').value = cells[4].innerText;
+        document.getElementById('servings').value = cells[5].innerText;
+        
+        // Remove the existing row from the table
+        row.remove();
+    }
+    
+    // Function to delete a recipe
+    function deleteRecipe(button) {
+        const row = button.closest('tr');
+        row.remove();
+    }
+</script>
+   
+</section>
+
+
+</section>
+
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <p>Got questions or feedback? Reach out to us via email, phone, or through our contact form.</p>
+			<form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+	
+	<p> -- </p>
+		<p> -- </p>
+			<p> -- </p>
+				<p> -- </p>
+        </section>
+    </div>
+	</body>
+    <footer>
+        <p>Recipe Sharing Platform</p>
+    </footer>
+
+</html>
+
+<script>
+    const searchInput = document.getElementById('recipe-search');
+    const table = document.getElementById('recipe-table');
+    const rows = table.getElementsByTagName('tr');
+    
+    searchInput.addEventListener('keyup', function(event) {
+        const searchTerm = event.target.value.toLowerCase();
+        
+        for (let row of rows) {
+            let cells = row.getElementsByTagName('td');
+            let found = false;
+            
+            for (let cell of cells) {
+                if (cell.innerText.toLowerCase().includes(searchTerm)) {
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (found) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+</script>

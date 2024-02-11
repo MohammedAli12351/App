@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Sharing Platform</title>
+    <style>
+        /* CSS for colorful theme */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; /* Light gray background */
+        }
+        header {
+            background-color: #3cb371; /* Medium sea green header */
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background-color: #4682b4; /* Steel blue navigation */
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 20px;
+        }
+        footer {
+            background-color: #696969; /* Dim gray footer */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Sharing Platform</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about-us">About Us</a>
+        <a href="#recipe-sharing">Recipe Sharing</a>
+        <a href="#contact-us">Contact Us</a>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to Recipe Sharing Platform! Discover and share delicious recipes from around the world.</p>
+        </section>
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>Learn about our mission, values, and the team behind Recipe Sharing Platform.</p>
+        </section>
+        <section id="recipe-sharing">
+            <h2>Recipe Sharing</h2>
+            <p>Share your favorite recipes with the world! Whether it's a family secret or a new creation, let's spread the joy of cooking.</p>
+        </section>
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <p>Got questions or feedback? Reach out to us via email, phone, or through our contact form.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Recipe Sharing Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>
